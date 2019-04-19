@@ -3,7 +3,7 @@ public class Result {
     private char xTour, xPiece;
     private boolean isLost;
 
-    public Result(char xTour, int yTour, char xPiece, int yPiece, boolean isLost) {
+    Result(char xTour, int yTour, char xPiece, int yPiece, boolean isLost) {
         this.yTour = yTour;
         this.yPiece = yPiece;
         this.xTour = xTour;
@@ -13,7 +13,7 @@ public class Result {
 
     @Override
     public String toString() {
-        String lost = isLost?"x":"-";
-        return "T"+xTour+yTour+lost+xPiece+yPiece;
+        String lost = isLost ? "x" : "-";
+        return "T" + xTour + yTour + lost + xPiece + yPiece;
     }
 }
