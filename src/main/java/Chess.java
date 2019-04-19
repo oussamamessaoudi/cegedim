@@ -37,7 +37,7 @@ public class Chess {
     }
     public LinkedList<Result> checkLeft(BoxContainer boxContainer){
         LinkedList<Result> result = new LinkedList<Result>();
-        for(char i = minX; i< boxContainer.getX(); i++ ){
+        for(char i = (char)(boxContainer.getX()-1); i>= minX; i-- ){
             if (checkLocal(boxContainer, result, i, boxContainer.getY()))
                 break;
         }
@@ -45,7 +45,7 @@ public class Chess {
     }
     public LinkedList<Result> checkUp(BoxContainer boxContainer){
         LinkedList<Result> result = new LinkedList<Result>();
-        for(int i = boxContainer.getY()+1; i< boardLength; i++ ){
+        for(int i = boxContainer.getY()+1; i<= boardLength; i++ ){
             if (checkLocal(boxContainer, result, boxContainer.getX(), i))
                 break;
         }
@@ -53,7 +53,7 @@ public class Chess {
     }
     public LinkedList<Result> checkDown(BoxContainer boxContainer){
         LinkedList<Result> result = new LinkedList<Result>();
-        for(int i = boxContainer.getY()-1; i>0 ; i-- ){
+        for(int i = boxContainer.getY()-1; i>=0 ; i-- ){
             if (checkLocal(boxContainer, result, boxContainer.getX(), i))
                 break;
         }
@@ -69,6 +69,7 @@ public class Chess {
         }
         else{
             result.add(new Result(boxContainer.getX(),boxContainer.getY(), i, y, true));
+            return true;
         }
         return false;
     }
